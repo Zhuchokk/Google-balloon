@@ -52,6 +52,18 @@ function check(spikes, balloon){
 }
 
 
+function listener (e) {
+	console.log('click', e.currentTarget.bal);
+	switch (e.key) {
+		case "ArrowLeft":
+			e.currentTarget.bal.horizon_move(-5);
+			break;
+		case "ArrowRight":
+			e.currentTarget.bal.horizon_move(5);
+			break;
+	}
+}
+
 class Base{
 	imagePath = '';
 	x = 0;
@@ -160,3 +172,6 @@ function main (spikes, balloon) {
 }
 
 setInterval(main, 100, spikes, bal);
+
+
+addEventListener("keydown", listener);
